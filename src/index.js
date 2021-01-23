@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-/** Nested Components
- * React tools
- * */
-
+/** CSS */
+import './index.css';
 
 function BookList(){
     return (
-        <section>
+        <section className="booklist">
             <Book/>
             <Book/>
             <Book/>
@@ -20,7 +18,7 @@ function BookList(){
 
 const Book = () => {
     return (
-        <article>
+        <article className="book">
             <Image/>
             <Title/>
             <Author/>
@@ -32,7 +30,7 @@ const Image = () => <img src="https://images-na.ssl-images-amazon.com/images/I/8
 
 const Title = () => <h1>I Love You to the Moon and Back</h1>
 
-const Author = () => <h4>Amelia Hepworth</h4>;
+const Author = () => <h4 style={{color: '#617d98', fontSize: '0.75rem', marginTop: '0.25rem'}}>Amelia Hepworth</h4>;
 
 ReactDOM.render(
     <BookList/>,
