@@ -7,16 +7,19 @@ import './index.css';
 //setup vars
 const books = [
     {
+        id: 1,
         img: 'https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg',
         author: 'Amelia Hepworth',
         title: 'I Love You to the Moon and Back',
     },
     {
+        id: 2,
         img: 'https://images-na.ssl-images-amazon.com/images/I/81gfKJtXGTL._AC_UL200_SR200,200_.jpg',
         author: 'Kamala Harris',
         title: 'Superheroes Are Everywhere',
     },
     {
+        id: 3,
         img: 'https://images-na.ssl-images-amazon.com/images/I/71KilybDOoL._AC_UL200_SR200,200_.jpg',
         author: 'Eric Carle',
         title: 'The Very Hungry Caterpillar',
@@ -26,13 +29,13 @@ const books = [
 function BookList(){
     return (
         <section className="booklist">
-            {books.map((book) => (<Book book={book}/>))}
+            {books.map((book) => (<Book key={book.id} {...book}/>))}
         </section>
     );
 };
 
-const Book = (props ) => {
-    const {img, title, author} = props.book;
+const Book = ({ img, title, author }) => {
+    // const { img, title, author } = props;
 
     return (
         <article className="book">
