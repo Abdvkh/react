@@ -5,51 +5,43 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 //setup vars
-const firstBook = {
-    img: 'https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg',
-    author: 'Amelia Hepworth',
-    title: 'I Love You to the Moon and Back',
-}
-const secondBook = {
-    img: 'https://images-na.ssl-images-amazon.com/images/I/81gfKJtXGTL._AC_UL200_SR200,200_.jpg',
-    author: 'Kamala Harris',
-    title: 'Superheroes Are Everywhere',
-}
+const books = [
+    {
+        img: 'https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg',
+        author: 'Amelia Hepworth',
+        title: 'I Love You to the Moon and Back',
+    },
+    {
+        img: 'https://images-na.ssl-images-amazon.com/images/I/81gfKJtXGTL._AC_UL200_SR200,200_.jpg',
+        author: 'Kamala Harris',
+        title: 'Superheroes Are Everywhere',
+    },
+    {
+        img: 'https://images-na.ssl-images-amazon.com/images/I/71KilybDOoL._AC_UL200_SR200,200_.jpg',
+        author: 'Eric Carle',
+        title: 'The Very Hungry Caterpillar',
+    }
+]
 
 function BookList(){
     return (
         <section className="booklist">
-            <Book
-                author={firstBook.author}
-                title={firstBook.title}
-                img={firstBook.img}
-            >
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam ea natus nemo neque non reiciendis saepe sit temporibus tenetur vero.</p>
-            </Book>
-            <Book
-                author={secondBook.author}
-                title={secondBook.title}
-                img={secondBook.img}
-            />
+            {books.map((book) => (<Book book={book}/>))}
         </section>
     );
-}
+};
 
-
-const Book = (props/*{img, title, author, children}*/) => {
-    const {img, title, author} = props;
-
-    console.log(props);
+const Book = (props ) => {
+    const {img, title, author} = props.book;
 
     return (
         <article className="book">
             <img src={img} alt=""/>
             <h1>{title}</h1>
-            <h4>{author.toUpperCase()}</h4>
-            {props.children}
+            <h6>{author}</h6>
         </article>
     );
-}
+};
 
 ReactDOM.render(
     <BookList/>,
